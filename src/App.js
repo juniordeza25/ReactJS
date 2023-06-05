@@ -16,6 +16,12 @@ function App() {
     color: "Negro",
   };
 
+  /* Lo que se hace aqui es enviar una funcion al componente Hijo (Saludar) y éste envia un valor al
+  componente padre (App) que seria el nombre del usuario */
+  const saludarFn = (name) => {
+    console.log("Hola " + name);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,7 +32,7 @@ function App() {
         <AdiosMundo />
         {/* <Saludar name="Junior Deza" edad="22" />
         <Saludar name="Estefano Deza" edad="23" /> */}
-        <Saludar userInfo={user} />
+        <Saludar userInfo={user} saludarFn={saludarFn} />
         <a
           className="App-link"
           href="https://reactjs.org"
