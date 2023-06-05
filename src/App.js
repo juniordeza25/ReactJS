@@ -1,6 +1,8 @@
 /* Importamos el hook de estado (useState) este sirve para manejar los estados de un
-elemento en este componente */
-import React, { useState } from "react";
+elemento en este componente 
+El hook de efecto (useEffect) sirve para ejecutar una porcion de codigo despues de una
+accion sin tener que recargar toda la aplicacion*/
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 /*Se importa el componente y se le asigna un nombre para ser usado, dicho
@@ -17,9 +19,22 @@ function App() {
   los nombres asignados son a eleccion, recoemndado que sea especifico del estado que se esta usando,
   en este caso stateCar servirá para almacenar el estado del auto (encendido o apagado) y setStateCar
   funciona como si fuera el metoso que sirve para setear el estado del auto, se encarga de cambiar
-  los valores. Para finalizar se le da un valor predeterminado al useState, emn este caso un boolean
-  para que cambie de false a true segun estado del auto*/
+  los valores. Para finalizar se le da un valor predeterminado al useState, en este caso un boolean
+  para que cambie de false a true segun estado del auto, sin embargo puede ser de cualquier tipo*/
   const [stateCar, setStateCar] = useState(false);
+  const [contar, setContar] = useState(0);
+
+  /* Hook de efecto, generalmente usado a para refescar una vista sin tener que recargar toda la app
+  en este caso se ejecutara despues de hacer un click y los irá contando, pero no se recarga toda la
+  app, solo se actualiza o se vuelve a ejecutar el fragmento de codigo dentro del  useEffect*/
+  useEffect(() => {
+    //aqui dentro va el codigo que se requiere que se ejecute
+    console.log(`Total ${contar}`);
+  }, [
+    /* Aqui en este arrya van la variables que queremos que detecte cuando se actualizan para volver 
+    ejecutarse */
+    contar,
+  ]);
 
   const encenderApagar = () => {
     /* En esta funcion se setea el estado del auto, enviando el estado distinto en el que se encuentra,
@@ -29,6 +44,7 @@ function App() {
 
     //setStateCar(!stateCar);
     setStateCar((prevValue) => !prevValue);
+    setContar(contar + 1);
   };
 
   const user = {
@@ -62,6 +78,7 @@ function App() {
 
         {/* Aqui se usa un if para validar el estado del auto */}
         <h4>El coche esta: {stateCar ? "Encendido" : "Apagado"}</h4>
+        <h4>Clicks: {contar}</h4>
         <button onClick={encenderApagar}>Encender/Apagar</button>
 
         <a
