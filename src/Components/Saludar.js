@@ -6,7 +6,8 @@ export default function Saludar(props) {
   al requerir una prop se usará el nombre asignado y no será necesario hacer una escala para
   llegar al prop que se quiere usar */
   const { userInfo, saludarFn } = props;
-  const { nombre } = userInfo;
+  //de esta manera se le asigna un valor por defecto a una prop en caso que no se encuentre la prop
+  const { nombre = "Anonimo" } = userInfo;
 
   return (
     <div>
