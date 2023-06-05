@@ -7,7 +7,7 @@ export default function Saludar(props) {
   llegar al prop que se quiere usar */
   const { userInfo, saludarFn } = props;
   //de esta manera se le asigna un valor por defecto a una prop en caso que no se encuentre la prop
-  const { nombre = "Anonimo" } = userInfo;
+  const { nombre = "Anonimo", edad } = userInfo;
 
   return (
     <div>
@@ -21,7 +21,7 @@ export default function Saludar(props) {
       {/* para usar una funcion en el evento onclick recibiendo un valor como parametro se
       debe hacer con la llamada "funcion anónima" solo asi esta funcion se ejecutará cuando
       se haga click en el boton, de lo contrario al recibir una funcion esta se ejecutará sola */}
-      <button onClick={() => saludarFn(nombre)}>Saludar</button>
+      <button onClick={() => saludarFn(nombre, edad)}>Saludar</button>
     </div>
   );
 }

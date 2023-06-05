@@ -18,8 +18,13 @@ function App() {
 
   /* Lo que se hace aqui es enviar una funcion al componente Hijo (Saludar) y éste envia un valor al
   componente padre (App) que seria el nombre del usuario */
-  const saludarFn = (name) => {
-    console.log("Hola " + name);
+  const saludarFn = (nombre, edad) => {
+    console.log("Hola " + nombre);
+    // usando template string, manera mas facil de usar texto con variables
+    //Manera comun
+    console.log("Hola " + nombre + ", tiene " + edad + " años.");
+    //Template string usando backtick (´´)
+    console.log(`Hola ${nombre}, tiene ${edad} años.`);
   };
 
   return (
