@@ -4,10 +4,10 @@ import './App.css';
 nombre es recomendable que sea igual que el componente para que sea facil ubicarlo
 mas adelante en el codigo*/
 import HolaMundo from './Components/HolaMundo.js';
-
 /*Para usar el componente que no es por default se debe hacer mediante llaves
 y sigue la misma regla del nombre explicado anteriormente*/
 import { AdiosMundo } from './Components/HolaMundo.js';
+import Saludar from './Components/Saludar';
 
 function App() {
   return (
@@ -18,6 +18,8 @@ function App() {
         import como una etiqueta HTML*/}
         <HolaMundo/>
         <AdiosMundo/>
+        <Saludar name="Junior Deza" edad="22"/>
+        <Saludar name="Estefano Deza" edad="23"/>
         <a
           className="App-link"
           href="https://reactjs.org"
